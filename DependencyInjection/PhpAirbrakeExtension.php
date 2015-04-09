@@ -33,6 +33,7 @@ class PhpAirbrakeExtension extends Extension
      * Merges the given configurations
      *
      * @param  array $configs An array of configurations
+     *
      * @return array The merged configuration
      */
     public function mergeConfigs(array $configs)

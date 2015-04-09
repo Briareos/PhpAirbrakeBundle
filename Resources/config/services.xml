@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
         <parameter key="php_airbrake.api_key"></parameter>
@@ -17,20 +17,20 @@
         <service id="php_airbrake.client" class="%php_airbrake.client.class%">
             <argument>%php_airbrake.api_key%</argument>
             <argument>%kernel.environment%</argument>
-            <argument type="service" id="request_stack" />
+            <argument type="service" id="request_stack"/>
             <argument>%kernel.root_dir%/..</argument>
             <argument>%php_airbrake.queue%</argument>
             <argument>%php_airbrake.api_endpoint%</argument>
         </service>
 
         <service id="php_airbrake.exception_listener" class="%php_airbrake.exception_listener.class%">
-            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" />
-            <argument type="service" id="php_airbrake.client" />
+            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException"/>
+            <argument type="service" id="php_airbrake.client"/>
         </service>
 
         <service id="php_airbrake.shutdown_listener" class="%php_airbrake.shutdown_listener.class%">
-            <tag name="kernel.event_listener" event="kernel.controller" method="register" />
-            <argument type="service" id="php_airbrake.client" />
+            <tag name="kernel.event_listener" event="kernel.controller" method="register"/>
+            <argument type="service" id="php_airbrake.client"/>
         </service>
     </services>
 </container>

@@ -48,11 +48,11 @@ class ShutdownListener
         }
 
         $fatalErrors = array(
-            E_ERROR             => 'E_ERROR',
-            E_PARSE             => 'E_PARSE',
-            E_CORE_ERROR        => 'E_CORE_ERROR',
-            E_COMPILE_ERROR     => 'E_COMPILE_ERROR',
-            E_USER_ERROR        => 'E_USER_ERROR',
+            E_ERROR         => 'E_ERROR',
+            E_PARSE         => 'E_PARSE',
+            E_CORE_ERROR    => 'E_CORE_ERROR',
+            E_COMPILE_ERROR => 'E_COMPILE_ERROR',
+            E_USER_ERROR    => 'E_USER_ERROR',
         );
 
         if (!isset($fatalErrors[$error['type']])) {
