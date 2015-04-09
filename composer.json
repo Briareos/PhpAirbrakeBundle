@@ -3,7 +3,7 @@
     "description": "This helps binds the php-airbrake module into a Symfony2 bundle for easy use with the framework.",
     "type": "symfony-bundle",
     "keywords": ["logging", "exceptions", "airbrake"],
-    "homepage": "https://github.com/nodrew/PhpAirbrakeBundle",
+    "homepage": "https://github.com/Briareos/PhpAirbrakeBundle",
     "license": "MIT",
     "authors": [
         {
