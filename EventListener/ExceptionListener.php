@@ -33,6 +33,5 @@ class ExceptionListener
         }
         
         $this->client->notifyOnException($exception);
-        error_log($exception->getMessage().' in: '.$exception->getFile().':'.$exception->getLine());
     }
 }
