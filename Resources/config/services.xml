@@ -17,7 +17,8 @@
         <service id="php_airbrake.client" class="%php_airbrake.client.class%">
             <argument>%php_airbrake.api_key%</argument>
             <argument>%kernel.environment%</argument>
-            <argument type="service" id="service_container" />
+            <argument type="service" id="request_stack" />
+            <argument>%kernel.root_dir%/..</argument>
             <argument>%php_airbrake.queue%</argument>
             <argument>%php_airbrake.api_endpoint%</argument>
         </service>
