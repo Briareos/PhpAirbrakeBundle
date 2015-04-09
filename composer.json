@@ -1,5 +1,5 @@
 {
-    "name": "nodrew/php-airbrake-bundle",
+    "name": "briareos/php-airbrake-bundle",
     "description": "This helps binds the php-airbrake module into a Symfony2 bundle for easy use with the framework.",
     "type": "symfony-bundle",
     "keywords": ["logging", "exceptions", "airbrake"],
