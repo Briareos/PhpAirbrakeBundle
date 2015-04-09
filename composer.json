@@ -9,11 +9,15 @@
         {
             "name": "Drew Butler",
             "email": "hi@nodrew.com"
+        },
+        {
+          "name": "Milos Colakovic",
+          "email": "briareos@github"
         }
     ],
     "require": {
-        "php": ">=5.3.1",        
-        "nodrew/php-airbrake": "dev-master"
+        "php": ">=5.3.1",
+        "nodrew/php-airbrake": "1.0.*"
     },
     "autoload": {
         "psr-0": { "Nodrew\\Bundle\\PhpAirbrakeBundle": "" }
