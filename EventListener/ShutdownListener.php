@@ -9,20 +9,21 @@ use Nodrew\Bundle\PhpAirbrakeBundle\Airbrake\Client,
  *
  * Handles shutdown errors and make sure they get logged.
  *
- * @package		Airbrake
- * @author		Drew Butler <hi@nodrew.com>
- * @copyright	(c) 2012 Drew Butler
- * @license		http://www.opensource.org/licenses/mit-license.php
+ * @package          Airbrake
+ * @author           Drew Butler <hi@nodrew.com>
+ * @copyright    (c) 2012 Drew Butler
+ * @license          http://www.opensource.org/licenses/mit-license.php
  */
 class ShutdownListener
 {
+
     protected $client;
 
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
-    
+
     /**
      * Register the handler on the request.
      *
@@ -46,13 +47,21 @@ class ShutdownListener
             return;
         }
 
-        $fatal  = array(E_ERROR,E_PARSE,E_CORE_ERROR,E_COMPILE_ERROR,E_USER_ERROR,E_RECOVERABLE_ERROR);
-        if (!in_array($error['type'], $fatal)) {
+        $fatalErrors = array(
+            E_ERROR             => 'E_ERROR',
+            E_PARSE             => 'E_PARSE',
+            E_CORE_ERROR        => 'E_CORE_ERROR',
+            E_COMPILE_ERROR     => 'E_COMPILE_ERROR',
+            E_USER_ERROR        => 'E_USER_ERROR',
+        );
+
+        if (!isset($fatalErrors[$error['type']])) {
             return;
         }
 
-        $message   = '[Shutdown Error]: %s';
-        $message   = sprintf($message, $error['message']);
+        $errorName = $fatalErrors[$error['type']];
+
+        $message   = sprintf('[%s]: %s', $errorName, $error['message']);
         $backtrace = array(array('file' => $error['file'], 'line' => $error['line']));
 
         $this->client->notifyOnError($message, $backtrace);
