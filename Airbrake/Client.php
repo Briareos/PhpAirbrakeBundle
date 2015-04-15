@@ -59,7 +59,7 @@ class Client extends AirbrakeClient
             $serverData  = $request->server->all();
             $getData     = $request->query->all();
             $postData    = $request->request->all();
-            $sessionData = $request->hasSession() ? $request->getSession()->all() : null;
+            $sessionData = ($request->hasSession() && $request->getSession()->isStarted()) ? $request->getSession()->all() : null;
             $component   = $controller;
         }
         $options = array(
