@@ -17,8 +17,8 @@
     ],
     "require": {
         "php": ">=5.3.1",
-        "nodrew/php-airbrake": "1.0.*",
-        "symfony/symfony": "~2.6"
+        "dbtlr/php-airbrake": "1.1.2",
+        "symfony/symfony": ">=2.6"
     },
     "autoload": {
         "psr-0": { "Nodrew\\Bundle\\PhpAirbrakeBundle": "" }
